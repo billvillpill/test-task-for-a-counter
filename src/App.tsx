@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Button} from './Button';
-import {render} from '@testing-library/react';
+
 
 function App() {
     let [counter, setCounter] = useState(0);
