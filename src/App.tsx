@@ -10,7 +10,7 @@ function App() {
     const counterIncrements = () => {
         setCounter(counter + 1)
         counter === 0 && setDisabledOnReset(false);
-        counter > 4 && setDisabledOnInc(true);
+        counter > 3 && setDisabledOnInc(true);
     };
     const counterReset = () => {
         setCounter(0);
