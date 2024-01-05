@@ -1,0 +1,42 @@
+
+.container {
+    display: block;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    border: 3px solid #1eeeff;
+    border-radius: 10px;
+}
+.counter {
+    display: flex;
+    min-height: 150px;
+    min-width: 250px;
+    justify-content: center;
+    align-items: center;
+    background-color: #1eeeff;
+    margin: 20px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 80px;
+    border: 3px solid #1eeeff;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px 15px;
+}
+.span {
+    display: flex;
+    justify-content: center;
+    color: #2b2c34;
+}
+.spanBlock {
+    display: flex;
+    justify-content: center;
+    color: red;
+}

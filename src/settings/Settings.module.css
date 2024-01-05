@@ -1,0 +1,63 @@
+
+.settings {
+    display: block;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    border: 3px solid #1eeeff;
+    border-radius: 10px;
+}
+.inputs {
+    display: flex;
+    min-height: 150px;
+    min-width: 250px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    gap: 50px;
+}
+
+.inputValueMax {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+
+}
+.inputValueStart {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+}
+.inputError {
+    border-radius: 4px;
+    border: 2px solid #ff1e1e;
+    background-color: #ff1e1e;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+.inputDefault {
+    border-radius: 4px;
+    border: 2px solid #1eeeff;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 80px;
+    border: 3px solid #1eeeff;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px 15px;
+}

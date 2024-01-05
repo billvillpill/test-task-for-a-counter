@@ -1,42 +1,38 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Button} from './Button';
+import {Counter} from "./counter/Counter";
+import {Settings} from "./settings/Settings";
 
 
 function App() {
-    let [counter, setCounter] = useState(0);
-    let [disabledOnInc, setDisabledOnInc] = useState(false)
-    let [disabledOnReset, setDisabledOnReset] = useState(true)
-    const counterIncrements = () => {
-        setCounter(counter + 1)
-        counter === 0 && setDisabledOnReset(false);
-        counter > 3 && setDisabledOnInc(true);
-    };
-    const counterReset = () => {
-        setCounter(0);
-        setDisabledOnInc(false);
-        setDisabledOnReset(true);
-    };
+    const [counter, setCounter] = useState(0);
+    let [minCounter, setMinCounter] = useState(0);
+    let [maxCounter, setMaxCounter] = useState(5);
 
+    const [disabledOnInc, setDisabledOnInc] = useState(false)
+    const [disabledOnReset, setDisabledOnReset] = useState(true)
+    const settingsSaving = (minValue: number, maxValue: number) => {
+        setCounter(minValue)
+        setMaxCounter(maxValue)
+    }
     return (
         <div className="App">
-            <div className="container">
-                <div className="counter">
-                    <p className={counter > 4 ? 'spanBlock' : 'span'}>{counter}</p>
-                </div>
-                <div className="buttons">
-                    <Button
-                        name="inc"
-                        counterIncrements={counterIncrements}
-                        disabled={disabledOnInc}
-                    />
-                    <Button
-                        name="reset"
-                        counterIncrements={counterReset}
-                        disabled={disabledOnReset}
-                    />
-                </div>
-            </div>
+            <Settings
+                settingsSaving={settingsSaving}
+                setCounter={setCounter}
+                setDisabledOnInc={setDisabledOnInc}
+                setDisabledOnReset={setDisabledOnReset}
+            />
+            <Counter
+                maxValueCounter={maxCounter}
+                counter={counter}
+                setCounter={setCounter}
+
+                disabledOnInc={disabledOnInc}
+                setDisabledOnInc={setDisabledOnInc}
+                disabledOnReset={disabledOnReset}
+                setDisabledOnReset={setDisabledOnReset}
+            />
         </div>
     );
 }

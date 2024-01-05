@@ -4,59 +4,25 @@
 }
 .App {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background-color: #2a2c36;
   min-height: 100vh;
 }
 
-.container {
-  display: block;
-  align-items: center;
-  justify-content: start;
-  flex-direction: column;
-  border: 3px solid #1eeeff;
-  border-radius: 10px;
-}
-.counter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1eeeff;
-  margin: 20px;
-  padding: 5px;
-  border-radius: 10px;
-}
-.span {
-  display: flex;
-  justify-content: center;
-  margin: 20px 100px;
-  color: #2b2c34;
+p {
   font-family: sans-serif;
+  font-size: 24px;
+  color: #1eeeff;
   font-weight: bold;
-  font-size: 64px;
 }
-.spanBlock {
-  display: flex;
-  justify-content: center;
-  margin: 20px 100px;
-  color: red;
+
+span {
   font-family: sans-serif;
   font-weight: bold;
   font-size: 64px;
 }
 
-.buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  gap: 30px;
-  border: 3px solid #1eeeff;
-  border-radius: 10px;
-  margin: 20px;
-  padding: 20px 15px;
-}
 button {
   padding: 0 14px;
   border-radius: 10px;

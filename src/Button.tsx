@@ -2,7 +2,7 @@ import React from 'react';
 
 type ButtonPropsType = {
     name: string
-    counterIncrements: () => void
+    callBack: () => void
     disabled: boolean
 }
 export const Button = (props: ButtonPropsType) => {
@@ -10,7 +10,7 @@ export const Button = (props: ButtonPropsType) => {
         <div>
             <button
                 type='submit'
-                onClick={props.counterIncrements}
+                onClick={props.callBack}
                 disabled={props.disabled}
             >{props.name}
             </button>
