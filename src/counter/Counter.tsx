@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {Button} from "../Button";
 import s from './Counter.module.css'
 

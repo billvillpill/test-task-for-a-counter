@@ -24,13 +24,13 @@ export const Settings: FC<SettingsProps> = (
     const [minValue, setMinValue] = useState(0);
     const [maxValue, setMaxValue] = useState(5);
 
-    React.useEffect(() => {
+    useEffect(() => {
         minValue < 0 || maxValue <= minValue
             ? changeState(true, true)
             : changeState(false, false);
     }, [minValue]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         maxValue <= 0 || maxValue <= minValue
             ? changeState(true, true)
             : changeState(false, false);
