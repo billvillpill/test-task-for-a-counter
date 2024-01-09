@@ -7,6 +7,7 @@ import {Settings} from "./settings/Settings";
 function App() {
     const [counter, setCounter] = useState(0);
     const [inputError, setInputError] = useState(false)
+    const [minCounter, setMinCounter] = useState(0);
     const [maxCounter, setMaxCounter] = useState(5);
     const [stateSpan, setStateSpan] = useState(false)
 
@@ -14,6 +15,7 @@ function App() {
     const [disabledOnReset, setDisabledOnReset] = useState(true)
     const settingsSaving = (minValue: number, maxValue: number) => {
         setCounter(minValue)
+        setMinCounter(minValue)
         setMaxCounter(maxValue)
     }
     return (
@@ -28,6 +30,7 @@ function App() {
             />
             <Counter
                 maxValueCounter={maxCounter}
+                minValueCounter={minCounter}
                 counter={counter}
                 setCounter={setCounter}
 

@@ -4,6 +4,7 @@ import s from './Counter.module.css'
 
 type CounterProps = {
     maxValueCounter: number
+    minValueCounter: number
     counter: number
     setCounter: (num: number) => void
 
@@ -17,6 +18,7 @@ type CounterProps = {
 export const Counter: FC<CounterProps> = (
     {
         maxValueCounter,
+        minValueCounter,
         counter,
         setCounter,
         stateSpan,
@@ -33,8 +35,9 @@ export const Counter: FC<CounterProps> = (
         setDisabledOnReset(false);
         counter > maxValueCounter - 2 && setDisabledOnInc(true);
     };
+
     const counterReset = () => {
-        setCounter(0);
+        setCounter(minValueCounter);
         setDisabledOnInc(false);
         setDisabledOnReset(true);
     };
