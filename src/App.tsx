@@ -6,8 +6,9 @@ import {Settings} from "./settings/Settings";
 
 function App() {
     const [counter, setCounter] = useState(0);
-    let [minCounter, setMinCounter] = useState(0);
-    let [maxCounter, setMaxCounter] = useState(5);
+    const [inputError, setInputError] = useState(false)
+    const [maxCounter, setMaxCounter] = useState(5);
+    const [stateSpan, setStateSpan] = useState(false)
 
     const [disabledOnInc, setDisabledOnInc] = useState(false)
     const [disabledOnReset, setDisabledOnReset] = useState(true)
@@ -18,16 +19,20 @@ function App() {
     return (
         <div className="App">
             <Settings
+                inputError={inputError}
+                setInputError={setInputError}
                 settingsSaving={settingsSaving}
-                setCounter={setCounter}
                 setDisabledOnInc={setDisabledOnInc}
                 setDisabledOnReset={setDisabledOnReset}
+                setStateSpan={setStateSpan}
             />
             <Counter
                 maxValueCounter={maxCounter}
                 counter={counter}
                 setCounter={setCounter}
 
+                stateSpan={stateSpan}
+                inputError={inputError}
                 disabledOnInc={disabledOnInc}
                 setDisabledOnInc={setDisabledOnInc}
                 disabledOnReset={disabledOnReset}

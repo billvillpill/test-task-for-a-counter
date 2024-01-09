@@ -6,6 +6,9 @@ type CounterProps = {
     maxValueCounter: number
     counter: number
     setCounter: (num: number) => void
+
+    stateSpan: boolean
+    inputError: boolean
     disabledOnInc: boolean
     setDisabledOnInc: (state: boolean) => void
     disabledOnReset: boolean
@@ -16,6 +19,8 @@ export const Counter: FC<CounterProps> = (
         maxValueCounter,
         counter,
         setCounter,
+        stateSpan,
+        inputError,
         disabledOnInc,
         setDisabledOnInc,
         disabledOnReset,
@@ -36,7 +41,9 @@ export const Counter: FC<CounterProps> = (
     return (
         <div className={s.container}>
             <div className={s.counter}>
-                <span className={counter > maxValueCounter - 1 ? s.spanBlock : s.span}>{counter}</span>
+                {inputError ? <span className={s.incorrectSpan}>Incorrect value!</span> : stateSpan
+                    ? <span className={s.enterSpan}>enter values and pres 'set'</span>
+                    : <span className={counter > maxValueCounter - 1 ? s.spanBlock : s.span}>{counter}</span>}
             </div>
             <div className={s.buttons}>
                 <Button
