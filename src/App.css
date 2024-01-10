@@ -8,6 +8,7 @@
   align-items: center;
   background-color: #2a2c36;
   min-height: 100vh;
+  flex-wrap: wrap;
 }
 
 p {

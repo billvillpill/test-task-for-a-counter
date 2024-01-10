@@ -21,6 +21,10 @@ function App() {
     return (
         <div className="App">
             <Settings
+                // minCounter={minCounter}
+                // maxCounter={maxCounter}
+                // setMinCounter={setMinCounter}
+                // setMaxCounter={setMaxCounter}
                 inputError={inputError}
                 setInputError={setInputError}
                 settingsSaving={settingsSaving}

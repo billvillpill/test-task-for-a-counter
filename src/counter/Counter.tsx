@@ -28,14 +28,13 @@ export const Counter: FC<CounterProps> = (
         disabledOnReset,
         setDisabledOnReset
     }) => {
-
-
+    /*увелечения значения счетчика до максимального установленого значения*/
     const counterIncrements = () => {
         setCounter(counter + 1)
         setDisabledOnReset(false);
         counter > maxValueCounter - 2 && setDisabledOnInc(true);
     };
-
+    /*изменения значения счетчика на минимальное установленое значение*/
     const counterReset = () => {
         setCounter(minValueCounter);
         setDisabledOnInc(false);

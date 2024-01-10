@@ -1,6 +1,6 @@
-import React, {ChangeEvent, FC, useEffect, useState} from 'react';
-import s from './Settings.module.css'
-import {Button} from "../Button";
+import React, {ChangeEvent, FC, useEffect, useRef, useState} from 'react';
+import s from './Settings.module.css';
+import {Button} from '../Button';
 
 type SettingsProps = {
     inputError: boolean
@@ -17,13 +17,28 @@ export const Settings: FC<SettingsProps> = (
         settingsSaving,
         setDisabledOnInc,
         setDisabledOnReset,
-        setStateSpan
+        setStateSpan,
     }) => {
-    const [disabledSetButton, setDisabledSetButton] = useState(true)
-
+    const [disabledSetButton, setDisabledSetButton] = useState(true);
     const [minValue, setMinValue] = useState(0);
     const [maxValue, setMaxValue] = useState(5);
+    /*получение значени minValue и maxValue после перезагрузки страницы из localStorage*/
+    useEffect(() => {
+        let valueMaxAsString = localStorage.getItem('maxValue')
+        if(valueMaxAsString) {
+            let newMaxValue = JSON.parse(valueMaxAsString)
+            setMaxValue(newMaxValue);
+        }
+    }, []);
+    useEffect(() => {
+        let valueMinAsString = localStorage.getItem('minValue')
+        if(valueMinAsString) {
+            let newMinValue = JSON.parse(valueMinAsString)
+            setMinValue(newMinValue);
+        }
+    }, []);
 
+    /* синхронное обновление значений minValue и maxValue в Settings*/
     useEffect(() => {
         minValue < 0 || maxValue <= minValue
             ? changeState(true, true)
@@ -35,29 +50,34 @@ export const Settings: FC<SettingsProps> = (
             ? changeState(true, true)
             : changeState(false, false);
     }, [maxValue]);
-
+    /*изменения состояние отображения ошибки сообщения на сообщение о сохранений настроек*/
     const changeState = (state: boolean, inputError: boolean) => {
         setDisabledSetButton(state);
-        setInputError(inputError)
-    }
+        setInputError(inputError);
+    };
+    /*сохранения настроек*/
     const callBackSettingsSaving = () => {
-        setDisabledSetButton(true)
-        settingsSaving(minValue, maxValue)
-        setDisabledOnInc(false)
-        setStateSpan(false)
-    }
+        setDisabledSetButton(true);
+        settingsSaving(minValue, maxValue);
+        localStorage.setItem('maxValue', JSON.stringify(maxValue));
+        localStorage.setItem('minValue', JSON.stringify(minValue));
+        setDisabledOnInc(false);
+        setStateSpan(false);
+    };
+    /*измение максимального значения в настройках*/
     const onChangeMaxValueCounter = (event: ChangeEvent<HTMLInputElement>) => {
-        setMaxValue(Number(event.currentTarget.value))
-        setDisabledOnInc(true)
-        setDisabledOnReset(true)
-        setStateSpan(true)
-    }
+        setMaxValue(Number(event.currentTarget.value));
+        setDisabledOnInc(true);
+        setDisabledOnReset(true);
+        setStateSpan(true);
+    };
+    /*измение минимального значения в настройках*/
     const onChangeStartValueCounter = (event: ChangeEvent<HTMLInputElement>) => {
-        setMinValue(Number(event.currentTarget.value))
-        setDisabledOnInc(true)
-        setDisabledOnReset(true)
-        setStateSpan(true)
-    }
+        setMinValue(Number(event.currentTarget.value));
+        setDisabledOnInc(true);
+        setDisabledOnReset(true);
+        setStateSpan(true);
+    };
 
     return (
         <div className={s.settings}>
