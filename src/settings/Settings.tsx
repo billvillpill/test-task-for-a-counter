@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, useEffect, useState} from 'react';
+import React, {ChangeEvent, FC} from 'react';
 import s from './Settings.module.css';
 import {Button} from '../Button';
 import {Input} from './Input';
